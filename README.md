@@ -4,7 +4,7 @@
 
 ![Website Reader for Claude](/public/img/logo-128.png)
 
-![Demo of Website Reader for Claude](/public/screenshots/demo.gif)
+![Demo of Website Reader for Claude](/demo.gif)
 
 A Chrome extension that automatically extracts webpage content when sharing URLs with Claude, enabling deeper conversations and better analysis.
 
