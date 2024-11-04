@@ -161,8 +161,25 @@ const processTextArea = async (element: HTMLElement | null, isPaste = false) => 
     lastPasteTime = now
   }
 
-  const text = element instanceof HTMLTextAreaElement ? element.value : element.textContent || ''
-  const newUrls = await findNewUrls(text)
+  // Get all text nodes as separate chunks
+  const textNodes: string[] = []
+  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null)
+
+  let node: Node | null
+  while ((node = walker.nextNode()) && node.textContent) {
+    textNodes.push(node.textContent)
+  }
+
+  // Process each text node separately
+  const newUrls: string[] = []
+  for (const text of textNodes) {
+    const trimmedText = text.trim()
+    if (trimmedText) {
+      // Only process non-empty text
+      const lineUrls = await findNewUrls(trimmedText)
+      newUrls.push(...lineUrls)
+    }
+  }
 
   if (newUrls.length > 0) {
     await processUrls(newUrls, element)
