@@ -1,7 +1,7 @@
 {
   "name": "website-reader-for-claude",
   "displayName": "Website Reader for Claude",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "**",
   "description": "Auto-extract website content for Claude. Paste URLs and instantly share complete webpages with claude.ai - no copying needed.",
   "type": "module",
