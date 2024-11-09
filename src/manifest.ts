@@ -31,6 +31,6 @@ export default defineManifest({
       matches: [],
     },
   ],
-  permissions: ['activeTab', 'scripting'],
+  permissions: ['activeTab'],
   host_permissions: ['https://claude.ai/*', 'https://r.jina.ai/*'],
 })
